@@ -1,201 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="tr">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel SEO Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .card-shadow { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05); }
+        select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 1rem; }
+    </style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="tr"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Otel Search Console Dashboard&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.glass-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.9);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(10px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid rgba(226, 232, 240, 1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="bg-slate-50 min-h-screen font-sans text-slate-900"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-7xl mx-auto px-4 py-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1 class="text-3xl font-extrabold tracking-tight text-slate-900"&gt;Otel Performans Dashboard&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-slate-500"&gt;Search Console Verileri (2024 - 2025)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="hotelSelector" onchange="updateDashboard()" class="w-full md:w-64 p-3 bg-white border border-slate-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 outline-none font-semibold"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="dmaris"&gt;D Maris Bay&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="argos"&gt;Argos in Cappadocia&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="dgocek"&gt;D-Resort Göcek&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="dayvalik"&gt;D-Resort Ayvalık&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass-card p-6 rounded-2xl shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm font-medium text-slate-500"&gt;Toplam Tıklama&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 id="statClicks" class="text-2xl font-bold mt-1 text-blue-600"&gt;-&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass-card p-6 rounded-2xl shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm font-medium text-slate-500"&gt;Toplam Gösterim&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 id="statImpressions" class="text-2xl font-bold mt-1 text-slate-800"&gt;-&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass-card p-6 rounded-2xl shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm font-medium text-slate-500"&gt;Ort. CTR&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 id="statCTR" class="text-2xl font-bold mt-1 text-emerald-600"&gt;-&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass-card p-6 rounded-2xl shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="text-sm font-medium text-slate-500"&gt;Ort. Pozisyon&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 id="statPos" class="text-2xl font-bold mt-1 text-orange-600"&gt;-&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass-card p-6 rounded-2xl shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-lg font-bold mb-4"&gt;Tıklama &amp; Gösterim Trendi&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;canvas id="mainChart"&gt;&lt;/canvas&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="glass-card p-6 rounded-2xl shadow-sm"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-lg font-bold mb-4"&gt;CTR &amp; Pozisyon Karşılaştırması&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;canvas id="secondaryChart"&gt;&lt;/canvas&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="glass-card rounded-2xl shadow-sm overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="p-6 border-b border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 class="text-lg font-bold"&gt;Aylık Detaylı Veri Tablosu&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="overflow-x-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;table class="w-full text-left border-collapse"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;tr class="bg-slate-50"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="p-4 font-semibold text-slate-600 border-b"&gt;Tarih&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="p-4 font-semibold text-slate-600 border-b"&gt;Tıklama&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="p-4 font-semibold text-slate-600 border-b"&gt;Gösterim&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="p-4 font-semibold text-slate-600 border-b"&gt;CTR&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;th class="p-4 font-semibold text-slate-600 border-b"&gt;Pozisyon&lt;/th&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/thead&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tbody id="dataTableBody"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/tbody&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const allData = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>dmaris: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>clicks: [9005, 5585, 2600, 2542, 4492, 4756, 6549, 7454, 11351, 14475, 15103, 14561, 10383, 4646, 2572, 1346],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>imps: [194184, 163849, 130145, 116778, 117188, 101693, 133844, 160081, 360531, 425405, 303790, 278538, 226123, 83303, 75005, 37326],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>ctr: [4.6, 3.4, 2.0, 2.2, 3.8, 4.7, 4.9, 4.7, 3.1, 3.4, 5.0, 5.2, 4.6, 5.6, 3.4, 3.6],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>pos: [17.3, 26, 31.1, 29.6, 19, 16.6, 15.8, 14.8, 30, 28.5, 9.3, 9.6, 7.1, 6.8, 8.8, 10.4]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>argos: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>clicks: [14000, 7400, 5800, 6000, 7200, 6700, 7100, 6400, 6300, 5200, 5600, 5900, 5800, 6000, 4900, 2800],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>imps: [160100, 133700, 120400, 117500, 129800, 123400, 148400, 181000, 168500, 114900, 126200, 172100, 144000, 130400, 140400, 236800],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>ctr: [8.7, 5.6, 4.8, 5.1, 5.5, 5.4, 4.8, 3.6, 3.7, 4.5, 4.4, 3.4, 4.0, 4.6, 3.5, 1.2],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>pos: [15, 16.1, 17.7, 17.1, 13.8, 14.6, 13.7, 26.4, 22.2, 15.5, 14.1, 11.4, 9.5, 7.1, 7.1, 7.5]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>dgocek: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>clicks: [2559, 1826, 1011, 877, 1252, 1084, 2369, 2664, 3942, 5516, 6777, 5748, 3188, 1738, 849, 697],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>imps: [65389, 51326, 34787, 31820, 32203, 31910, 56403, 66609, 94191, 137009, 172086, 170514, 93488, 45183, 43213, 27692],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>ctr: [3.9, 3.5, 2.9, 2.7, 3.8, 3.4, 4.2, 4.0, 4.1, 4.0, 3.9, 3.3, 3.4, 3.8, 1.9, 2.5],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>pos: [11.8, 16.9, 20.8, 20.1, 15.5, 15.6, 10.9, 9.4, 9.1, 7.9, 6.9, 7.9, 7.9, 6.4, 7.4, 10.3]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>dayvalik: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>labels: ['Sep 24', 'Oct 24', 'Nov 24', 'Dec 24', 'Jan 25', 'Feb 25', 'Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>clicks: [2285, 1023, 459, 572, 1044, 930, 1559, 1734, 3909, 6237, 8182, 6107, 2054, 924, 499, 471],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>imps: [37901, 22266, 15138, 18312, 19551, 19769, 29108, 32973, 72720, 106366, 140213, 137980, 61731, 21017, 18484, 10910],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>ctr: [6.0, 4.6, 3.0, 3.1, 5.3, 4.7, 5.4, 5.3, 5.4, 5.9, 5.8, 4.4, 3.3, 4.4, 2.7, 4.3],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>pos: [8.7, 18.6, 26.8, 25.2, 14.9, 13.6, 12.4, 11.9, 7.7, 7.1, 6.7, 9.9, 7.8, 5.7, 9.4, 12.1]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>let mainChart, secondaryChart;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function updateDashboard() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const hotelKey = document.getElementById('hotelSelector').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const data = allData[hotelKey];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update Stats</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('statClicks').innerText = data.clicks.reduce((a, b) =&gt; a + b, 0).toLocaleString();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('statImpressions').innerText = data.imps.reduce((a, b) =&gt; a + b, 0).toLocaleString();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('statCTR').innerText = (data.ctr.reduce((a, b) =&gt; a + b, 0) / data.ctr.length).toFixed(2) + '%';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('statPos').innerText = (data.pos.reduce((a, b) =&gt; a + b, 0) / data.pos.length).toFixed(1);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update Table</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const tbody = document.getElementById('dataTableBody');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>tbody.innerHTML = '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>data.labels.forEach((label, i) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>tbody.innerHTML += `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr class="hover:bg-slate-50 transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-4 border-b text-slate-700 font-medium"&gt;${label}&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-4 border-b"&gt;${data.clicks[i].toLocaleString()}&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-4 border-b"&gt;${data.imps[i].toLocaleString()}&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-4 border-b font-semibold text-emerald-600"&gt;${data.ctr[i]}%&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td class="p-4 border-b font-semibold text-orange-600"&gt;${data.pos[i]}&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update Charts</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (mainChart) mainChart.destroy();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (secondaryChart) secondaryChart.destroy();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const ctx1 = document.getElementById('mainChart').getContext('2d');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>mainChart = new Chart(ctx1, {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'line',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>data: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>labels: data.labels,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>datasets: [</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>{ label: 'Tıklama', data: data.clicks, borderColor: '#2563eb', backgroundColor: 'rgba(37, 99, 235, 0.1)', fill: true, tension: 0.4, yAxisID: 'y' },</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>{ label: 'Gösterim', data: data.imps, borderColor: '#94a3b8', borderDash: [5, 5], tension: 0.4, yAxisID: 'y1' }</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>]</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                </span>options: {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>responsive: true,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>scales: {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">                        </span>y: { type: 'linear', display: true, position: 'left', title: { display: true, text: 'Tıklama' } },</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>y1: { type: 'linear', display: true, position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Gösterim' } }</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>const ctx2 = document.getElementById('secondaryChart').getContext('2d');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>secondaryChart = new Chart(ctx2, {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'bar',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>data: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>labels: data.labels,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>datasets: [</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>{ label: 'CTR (%)', data: data.ctr, backgroundColor: '#10b981', borderRadius: 5 },</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>{ label: 'Pozisyon', data: data.pos, type: 'line', borderColor: '#f59e0b', backgroundColor: '#f59e0b', tension: 0.4 }</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>]</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Initialize</p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.onload = updateDashboard;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
-</body>
-</html>
+<body class="bg-[#f8fafc] text-slate-800 antialiased">
+
+    <div class="max-w-7xl mx-auto px-4 py-10">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
+            <div>
+                <h1 class="text-4xl font-black text-slate-900 tracking-tight">Analytics Dashboard</h1>
+                <p class="text-slate-500 mt-1 font-medium">Search Console Performans Verileri</p>
+            </div>
+            
+            <div class="relative w-full md:w-80">
+                <select id="hotelSelector" onchange="renderDashboard()" class="w-full p-4 bg-white border border-slate-200 rounded-2xl shadow-sm focus:ring-2 focus:ring-indigo-500 outline-none font-bold text-slate-700 cursor-pointer transition-all">
+                    <option value="dmaris">D Maris Bay</option>
+                    <option value="argos">Argos in Cappadocia</option>
+                    <option value="dgocek">D-Resort Göcek</option>
+                    <option value="dayvalik">D-Resort Ayvalık</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <div class="bg-white p-6 rounded-3xl card-shadow border border-slate-100">
+                <p class="text-xs font-bold text-indigo-500 uppercase tracking-wider">Toplam Tıklama</p>
+                <h3 id="statClicks" class="text-3xl font-black mt-2 text-slate-900">-</h3>
+            </div>
+            <div class="bg-white p-6 rounded-3xl card-shadow border border-slate-100">
+                <p class="text-xs font-bold text-blue-500 uppercase tracking-wider">Toplam Gösterim</p>
+                <h3 id="statImpressions" class="text-3xl font-black mt-2 text-slate-900">-</h3>
+            </div>
+            <div class="bg-white p-6 rounded-3xl card-shadow border border-slate-100">
+                <p class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Ortalama CTR</p>
+                <h3 id="statCTR" class="text-3xl font-black mt-2 text-slate-900">-</h3>
+            </div>
+            <div class="bg-white p-6 rounded-3xl card-shadow border border-slate-100">
+                <p class="text-xs font-bold text-orange-500 uppercase tracking-wider">Ort. Pozisyon</p>
